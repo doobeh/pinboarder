@@ -1,6 +1,6 @@
 from app import db
 from datetime import datetime
-import hashlib
+from tools import generate_hash
 
 class Post(db.Model):
     __tablename__ = 'post'
@@ -18,11 +18,7 @@ class Post(db.Model):
         self.title = data["d"]
         self.url = data["u"]
         self.dt = datetime.strptime(data["dt"], '%Y-%m-%dT%H:%M:%SZ')
-
-        hash = hashlib.sha1()
-        hash.update(data["d"])
-        hash.update(data["dt"])
-        self.hash = hash
+        self.hash = generate_hash(data["dt"], data["d"])
 
     def __repr__(self):
         return '<{title}>'.format(title=self.title)
