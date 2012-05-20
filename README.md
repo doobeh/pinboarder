@@ -43,17 +43,18 @@ I shall be documenting this project on my site soon, and I'll leave a link here
 when I do-- mostly as a tutorial for new people coming into the Flask web
 development framework.
 
-Lots of tweaks required too in the not too distant future--
+Lots of tweaks required in the not too distant future--
 * The pinboard refresh function is fired on request at the
 moment, it should run automatically in the background really.
 * The Feed url is hardcoded in the ```config.py``` file at the moment, I should
 move that into the admin interface.
-* Limited querying of Pinboard.  At present when a update is requested, all the
-posts matching are returned, if a user had thousands of posts that would be a bit
-unfair to Pinboard.  Instead it should memorize the last sucessful update, then
-just ask the Pinboard API for all posts newer than that time.
+* Be a good neighbour and query Pinboard in a more frugal way. At present when a
+update is requested, all the posts matching are returned, if a user had thousands
+of posts that would be a bit unfair to Pinboard's bandwidth.  Instead it should
+memorize the last sucessful update, then just ask the Pinboard API for all posts newer
+than that time.
 * Improve the user interface so it's a working theme that someone might actually
-want to use
+be happy to use.  Maybe even add some theme options if I get really productive.
 * Add a few blueprints to break the site apart, at least to document in the
 tutorial to make it a more complete introduction.
 
