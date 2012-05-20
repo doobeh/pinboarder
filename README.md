@@ -6,8 +6,8 @@ Pinboarder turns a [Pinboard][pinboard] feed into a mostly functional Blog syste
 ### But why?!
 [Pinboard.in][pinboard] is a social bookmarking site that gathers and keeps your
 favourite links in order.  It makes sense that if you're already collecting the
-best of the web in one place, then if you want to start a curation type blog, and
-keep it up to date, being able to tie the blog system into your Pinboard account would
+best of the web in one place and you wanted to start a curation type blog, then
+being able to tie the blog system into your Pinboard account would
 seem like a very good idea indeed.
 
 ### So, how does it work?
