@@ -31,7 +31,7 @@ update.
 * Git clone the repository to your computer
 * Create a Python virtual environment and activate it
 * Install the requirements (```pip install -r requirements.txt```)
-* Setup the server ```setup.py```
+* Create the initial database ```setup.py```  (edit this to set the default admin).
 * Run the server ```rundebug.py```
 * Access the site at [http://127.0.0.1:5000][3]
 
