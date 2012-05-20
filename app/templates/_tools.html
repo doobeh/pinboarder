@@ -1,0 +1,80 @@
+{% macro render_pagination(pagination, endpoint_func) %}
+    <div class="pagination pagination-centered">
+        <ul>
+            {%  if pagination.has_prev %}
+                <li><a href="{{ endpoint_func(pagination.page - 1) }}">&laquo; Prev</a></li>
+            {%  else %}
+                <li class="disabled"><a href="#">&laquo; Prev</a></li>
+            {%  endif %}
+            {%- for page in pagination.iter_pages() %}
+                {% if page %}
+                    {% if page != pagination.page %}
+                        <li><a href="{{ endpoint_func(page) }}">{{ page }}</a></li>
+                    {% else %}
+                        <li class="active"><a href="#">{{ page }}</li></a>
+                    {% endif %}
+                {% else %}
+                    <li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+            {%- endfor %}
+            {%  if pagination.has_next %}
+                <li><a href="{{ endpoint_func(pagination.page + 1) }}">Next &raquo;</a></li>
+            {%  else %}
+                <li class="disabled"><a href="#">Next &raquo;</a></li>
+            {%  endif %}
+        </ul>
+    </div>
+{% endmacro %}
+
+
+{%  macro bs_field(field,help=False,icon=False,counter=False) %}
+
+<div class="control-group{% if field.errors %} warning{% endif %}">
+    {% if field.type in ('EmailField','PasswordField','TextField','TextAreaField','FileField','QuerySelectFieldCustom','DecimalField','SelectField') %}
+    {{  field.label(class="control-label") }}
+    <div class="controls">
+        {% if icon %}
+        <div class="input-prepend">
+            <span class="add-on"><i class="{{ icon }}"></i></span>
+            {%  endif %}
+            {{  field(**kwargs)|safe }}
+            {% if icon %}</div>{% endif %}
+
+        {# Show Errors #}
+        {% if field.errors %}
+        <p class="help-block">
+            {%- for error in field.errors %}<i class="icon-star"></i> {{ error }}<br/>{% endfor -%}
+        </p>
+        {% endif %}
+
+
+        {%  if help or counter%}
+        <p class="help-block">{{ help|safe }}{% if counter %} <span class="counter-display"></span> characters left. {% endif %}</p>
+        {% endif %}
+    </div>
+
+    {% elif field.type in ('RadioField') %}
+    {{  field.label(class="control-label") }}
+    <div class="controls">
+
+        {% for subfield in field %}
+        <label class="radio">
+            {{ subfield(**kwargs)|safe }}
+            {{ subfield.label.text }}
+        </label>
+        {%  endfor %}
+        {%  if help %}
+        {% if field.errors %}
+        <p class="help-block">
+            {%- for error in field.errors %}<i class="icon-star"></i> {{ error }}{% endfor -%}
+        </p>
+        {% endif %}
+        <p class="help-block">{{ help }}</p>
+        {% endif %}
+    </div>
+    {% else %}
+    <h1>{{  field }}</h1>
+    {% endif %}
+</div>
+
+{%  endmacro %}

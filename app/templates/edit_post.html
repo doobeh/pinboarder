@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% from "_tools.html" import bs_field %}
+{% block content %}
+<form method="POST" action="" class="well form-inline wide">
+    {{ form.csrf_token }}
+    {{ bs_field(form.title, class="span11 input text") }}
+    {{ bs_field(form.content, class="span11 input text", style="height: 300px;") }}
+    {{ bs_field(form.url, class=" span11 input text") }}
+    <input type="submit" value="Edit" class="btn btn-primary">
+    <a class="btn" href="{{ url_for('manage') }}">Cancel</a>
+
+</form>
+
+
+{% endblock %}

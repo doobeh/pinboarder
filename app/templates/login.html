@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% from "_tools.html" import bs_field %}
+
+
+
+{% block content %}
+
+
+<form method="POST" action="." class="well form-inline">
+    {{ form.csrf_token }}
+    {{ bs_field(form.email, class="input text") }}
+    {{ bs_field(form.password, class="input text") }}
+    <input type="submit" value="Login" class="btn btn-primary">
+    <a href="{{ url_for('home') }}" class="btn">Close</a>
+</form>
+{% endblock %}
+
+
+{% block navigation %}{%  endblock %}
