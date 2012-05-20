@@ -21,8 +21,7 @@ What Pinboarder does is create a small database, and then queries Pinboard
 for all the posts at a particular feed, it runs down the list and creates
 entries for all the bookmarked posts.  Then you can just login to the admin
 side of the site and manage the posts, edit the content here and there (by
-default it'll pull in the Pinboard notes) or even the Title if it needs a
-tweak or two.
+default it'll pull in the Pinboard notes) or hide it from public view.
 
 It also creates a unique hash of each of the posts, so even if you change
 the title, it will know not to import the old one next time you run an
