@@ -30,7 +30,7 @@ tweak or two.
 * Install the requirements (```pip install -r requirements.txt```)
 * Setup the server ```setup.py````
 * Run the server ```rundebug.py````
-
+* Access the site at [http://127.0.0.1:5000][3]
 I'll add a better deployment mechanism so you can very easily deploy an instance
 to the wonderful Heroku.
 
@@ -51,4 +51,5 @@ tutorial to make it a more complete introduction.
 
 [1]: http://feeds.pinboard.in/json/v1/u:chaos
 [2]: http://feeds.pinboard.in/json/v1/u:chaos/t:Apple/
+[3]: http://127.0.0.1:5000
 [pinboard]: http://www.pinboard.in "Pinboard Bookmarks"
