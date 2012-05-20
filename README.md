@@ -27,7 +27,7 @@ tweak or two.
 ### Hmm, okay, so.. how do I run it?
 * Git clone the repository to your computer
 * Create a Python virtual environment and activate it
-* Install the requirements (pip install -r requirements.txt)
+* Install the requirements (```pip install -r requirements.txt```)
 * Setup the server ```setup.py````
 * Run the server ```rundebug.py````
 
@@ -39,7 +39,7 @@ I shall be documenting this project on my site soon, and I'll leave a link here
 when I do-- mostly as a tutorial for new people coming into the Flask web
 development framework.
 
-Lots of tweaks too--
+Lots of tweaks required too in the not too distant future--
 * The pinboard refresh function is fired on request at the
 moment, it should run automatically in the background really.
 * The Feed url is hardcoded in the ```config.py``` file at the moment, I should
