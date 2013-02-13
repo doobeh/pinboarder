@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pinboarder by doobeh</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pinboarder</h1>
+        <p>Pinboard.in Weblog Generator</p>
+        <p class="view"><a href="https://github.com/doobeh/pinboarder">View the Project on GitHub <small>doobeh/pinboarder</small></a></p>
+        <ul>
+          <li><a href="https://github.com/doobeh/pinboarder/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/doobeh/pinboarder/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/doobeh/pinboarder">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Pinboarder</h1>
+
+<h3>In short</h3>
+
+<p>Pinboarder turns a <a href="http://www.pinboard.in" title="Pinboard Bookmarks">Pinboard</a> feed into a mostly functional Blog system.</p>
+
+<h3>But why?!</h3>
+
+<p><a href="http://www.pinboard.in" title="Pinboard Bookmarks">Pinboard.in</a> is a social bookmarking site that gathers and keeps your
+favourite links in order.  It makes sense that if you're already collecting the
+best of the web in one place and you wanted to start a curation type blog, then
+being able to tie the blog system into your Pinboard account would
+seem like a very good idea indeed.</p>
+
+<h3>So, how does it work?</h3>
+
+<p>Pinboard has a very accessible API, if you want to view all the shared links from
+"Chaos", well you can just go to
+<a href="http://feeds.pinboard.in/json/v1/u:chaos">http://feeds.pinboard.in/json/v1/u:chaos</a> and you'll get a nice json stream
+of all the posts.  Further, if you wish to only view posts tagged with "Apple"
+you can simply go to <a href="http://feeds.pinboard.in/json/v1/u:chaos/t:Apple/">http://feeds.pinboard.in/json/v1/u:chaos/t:Apple/</a>.</p>
+
+<p>What Pinboarder does is create a small database, and then queries Pinboard
+for all the posts at a particular feed, it runs down the list and creates
+entries for all the bookmarked posts.  Then you can just login to the admin
+side of the site and manage the posts, edit the content here and there (by
+default it'll pull in the Pinboard notes) or hide it from public view.</p>
+
+<p>It also creates a unique hash of each of the posts, so even if you change
+the title, it will know not to import the old one next time you run an
+update.</p>
+
+<h3>Hmm, okay, so.. how do I run it?</h3>
+
+<ul>
+<li>Git clone the repository to your computer</li>
+<li>Create a Python virtual environment and activate it</li>
+<li>Install the requirements (<code>pip install -r requirements.txt</code>)</li>
+<li>Create the initial database <code>setup.py</code>  (edit this to set the default admin).</li>
+<li>Run the server <code>rundebug.py</code>
+</li>
+<li>Access the site at <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a>
+</li>
+</ul><p>I'll add a better deployment mechanism so you can very easily deploy an instance
+to the wonderful Heroku.</p>
+
+<h3>Anything else?</h3>
+
+<p>I shall be documenting this project on my site soon, and I'll leave a link here
+when I do-- mostly as a tutorial for new people coming into the Flask web
+development framework.</p>
+
+<p>Lots of tweaks required in the not too distant future--</p>
+
+<ul>
+<li>The pinboard refresh function is fired on request at the
+moment, it should run automatically in the background really.</li>
+<li>The Feed url is hardcoded in the <code>config.py</code> file at the moment, I should
+move that into the admin interface.</li>
+<li>Be a good neighbour and query Pinboard in a more frugal way. At present when a
+update is requested, all the posts matching are returned, if a user had thousands
+of posts that would be a bit unfair to Pinboard's bandwidth.  Instead it should
+memorize the last sucessful update, then just ask the Pinboard API for all posts newer
+than that time.</li>
+<li>Improve the user interface so it's a working theme that someone might actually
+be happy to use.  Maybe even add some theme options if I get really productive.</li>
+<li>Add a few blueprints to break the site apart, at least to document in the
+tutorial to make it a more complete introduction.</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/doobeh">doobeh</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
